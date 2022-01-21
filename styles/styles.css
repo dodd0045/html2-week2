@@ -191,3 +191,48 @@ nav ul li:nth-child(2){
     anything higher will go to the end of the flex 
     order:1;*/
 }
+
+
+h1{
+    display:grid;
+    /* set up a grid with five columns */
+    grid-template-columns:repeat(5, 1fr); /*1fr 1fr 1fr 1fr 1fr;*/
+    /* grid template areas forms a map of the grid you want to use 
+    (don't use numbers alone to define the grid areas */
+    grid-template-areas:
+        "penguin title1 title1 title1 title1"
+        "penguin title2 title2 title2 title2";
+}
+h1 img{
+    /* grid area assigns an item to an area in the grid */
+    grid-area:penguin;
+}
+h1 span:nth-child(2){ grid-area:title1; }
+h1 span:nth-child(3){ grid-area:title2; }
+
+#game{
+    display:grid;
+    grid-template-columns:1fr 2fr 1fr;
+    grid-template-rows:2fr 1fr 1fr;
+    justify-items:center;
+    align-items:end;
+
+    grid-auto-flow:dense;
+}
+
+#game img:nth-of-type(3){
+    grid-row:3;
+    background-color:white;
+}
+
+#game img:nth-of-type(2){
+    grid-column-start:2;
+    grid-column-end:span 2;
+    background-color:darkgreen;
+    justify-self:end;
+    align-self:center;
+}
+
+#game img:nth-of-type(1){
+    grid-row:2;
+}
